@@ -15,6 +15,7 @@ Svečias galės:
   Prisijungti
   Registruotis
 Prisijungęs naudotojas galės:
+
   Viską gali atlikti, ką atlieka svečias
   Atsijungti nuo svetainės
   Palikti komentarą apie knygą
