@@ -14,16 +14,18 @@ Svečias galės:
 > Filtruoti norimus duomenis\
 > Prisijungti\
 > Registruotis\
+
 Prisijungęs naudotojas galės:
-* Viską gali atlikti, ką atlieka svečias
-* Atsijungti nuo svetainės
-* Palikti komentarą apie knygą
-* Redaguoti savo komentarą
-* Pašalinti savo komentarą
+> Viską gali atlikti, ką atlieka svečias\
+> Atsijungti nuo svetainės\
+> Palikti komentarą apie knygą\
+> Redaguoti savo komentarą\
+> Pašalinti savo komentarą\
+
 Administratorius galės:
-* Viską gali atlikti, ką atlieka prisijungęs naudotojas
-* Valdyti autorių (sukurti naują, redaguoti, ištrinti)
-* Valdyti knygą (sukurti naują, redaguoti, ištrinti)
-* Ištrinti nepageidautinus komentarus
+> Viską gali atlikti, ką atlieka prisijungęs naudotojas\
+> Valdyti autorių (sukurti naują, redaguoti, ištrinti)\
+> Valdyti knygą (sukurti naują, redaguoti, ištrinti)\
+> Ištrinti nepageidautinus komentarus\
 
 # 2. Architektūra
