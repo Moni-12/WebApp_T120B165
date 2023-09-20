@@ -1,5 +1,5 @@
-# WebApp_T120B165
-T120B165 Saityno taikomųjų programų projektavimas moduliui kuriama web aplikacija
+# Read and share
+T120B165 Saityno taikomųjų programų projektavimas
 
 # 1. Uždavinio aprašymas
 ## 1.1. Sistemos paskirtis
