@@ -7,15 +7,14 @@ Projekto tikslas – padaryti internetinę svetainę, kurioje bus galima ieškot
 Neprisiregistravęs naudotojas svetainėje galės tik peržiūrėti informaciją apie knygas ir autorius bei matyti kitų paliktus komentarus. Prisijungęs naudotojas taip pat galės komentuoti. Tik administratorius galės pridėti/redaguoti/ištrinti informaciją apie autorius ir knygas. Kiekvienas autorius gali turėti keletą knygų, o kiekviena knyga gali turėti keletą komentarų.
 
 ## 1.2. Sistemos funkciniai reikalavimai
-Sistemoje yra trys naudotojų rolės: svečias, prisijungęs naudotojas ir administratorius.
-Svečias galės:
-  Peržiūrėti knygas ir jų komentarus
-  Peržiūrėti autorius
+Sistemoje yra trys naudotojų rolės: svečias, prisijungęs naudotojas ir administratorius.__
+Svečias galės:__
+  Peržiūrėti knygas ir jų komentarus__
+  Peržiūrėti autorius__
   Filtruoti norimus duomenis
   Prisijungti
   Registruotis
 Prisijungęs naudotojas galės:
-
   Viską gali atlikti, ką atlieka svečias
   Atsijungti nuo svetainės
   Palikti komentarą apie knygą
