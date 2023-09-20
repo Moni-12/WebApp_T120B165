@@ -34,7 +34,7 @@ Administratorius galės:
 * Serverinei daliai (angl. back-end) - C# .NET Core
 * Duomenų bazė - MySQL
 
-Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne naudojant Azure serveryje.
+Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne Azure serveryje.
 
 ![deployment](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/fbc44d28-aefe-48c1-abce-7b1fe05e1a4d)
 
