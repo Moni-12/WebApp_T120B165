@@ -9,11 +9,11 @@ Neprisiregistravęs naudotojas svetainėje galės tik peržiūrėti informaciją
 ## 1.2. Sistemos funkciniai reikalavimai
 Sistemoje yra trys naudotojų rolės: svečias, prisijungęs naudotojas ir administratorius\
 Svečias galės:
-* Peržiūrėti knygas ir jų komentarus
-* Peržiūrėti autorius
-* Filtruoti norimus duomenis
-* Prisijungti
-* Registruotis
+> Peržiūrėti knygas ir jų komentarus
+> Peržiūrėti autorius
+> Filtruoti norimus duomenis
+> Prisijungti
+> Registruotis
 Prisijungęs naudotojas galės:
 * Viską gali atlikti, ką atlieka svečias
 * Atsijungti nuo svetainės
