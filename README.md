@@ -13,19 +13,25 @@ Svečias galės:
 > Peržiūrėti autorius\
 > Filtruoti norimus duomenis\
 > Prisijungti\
-> Registruotis\
+> Registruotis
 
 Prisijungęs naudotojas galės:
 > Viską gali atlikti, ką atlieka svečias\
 > Atsijungti nuo svetainės\
 > Palikti komentarą apie knygą\
 > Redaguoti savo komentarą\
-> Pašalinti savo komentarą\
+> Pašalinti savo komentarą
 
 Administratorius galės:
 > Viską gali atlikti, ką atlieka prisijungęs naudotojas\
 > Valdyti autorių (sukurti naują, redaguoti, ištrinti)\
 > Valdyti knygą (sukurti naują, redaguoti, ištrinti)\
-> Ištrinti nepageidautinus komentarus\
+> Ištrinti nepageidautinus komentarus
 
 # 2. Architektūra
+Šiai internetinei svetaine realizuoti naudojama trijų sluoksnių architektūra.
+* Klientinei daliai (angl. front-end) - React.js
+* Serverinei daliai (angl. back-end) - C# .NET Core
+* Duomenų bazė - MySQL
+
+Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne naudojant Azure serveryje.
