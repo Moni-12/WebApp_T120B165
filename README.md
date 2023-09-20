@@ -35,3 +35,5 @@ Administratorius galės:
 * Duomenų bazė - MySQL
 
 Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne naudojant Azure serveryje.
+
+![saitynai](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/1494cf7e-41cb-4889-ae2f-2f054f685720)
