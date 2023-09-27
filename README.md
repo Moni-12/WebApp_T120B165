@@ -42,20 +42,29 @@ Administratorius galės:
 Šioje sistemoje yra trys hierachiškai susiję klasės Author->Book->Review. Kiekvienos klasės objektams skaityti, modifikuoti, atnaujinti ir trinti yra po API metodą.
 
 ## 2.1. Author API metodai
-## Endpoints
-
-List and describe the available API endpoints. Use sub-sections for each endpoint, including a brief description, request details, and response details.
-
-### Endpoint 1
-
-#### Endpoint 1 Description
-
-Provide a detailed description of what this endpoint does and any required parameters or options.
-
+### GetAllAuthors
+#### Grąžina visus autorius sistemoje
 #### Request
-
-Describe the request format, including HTTP method, headers, and any required or optional parameters. Provide examples if possible.
-
 ```http
-GET /endpoint1
+GET https://localhost:7031/api/authors
+```
+#### Response
+```http
+[
+    {
+        "id": 1,
+        "firstName": "Name",
+        "lastName": "LatName",
+        "dateOfBirth": "1965-07-31T00:00:00",
+        "aboutAuthor": "Description"
+    },
+    {
+        "id": 2,
+        "firstName": "Name",
+        "lastName": "LatName",
+        "dateOfBirth": "1978-04-21T00:00:00",
+        "aboutAuthor": "Description"
+    }
+}
+```
 
