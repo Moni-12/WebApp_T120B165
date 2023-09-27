@@ -50,6 +50,7 @@ GET https://localhost:7031/api/authors
 ```
 #### Response
 ```http
+Status 200
 [
     {
         "id": 1,
@@ -65,6 +66,81 @@ GET https://localhost:7031/api/authors
         "dateOfBirth": "1978-04-21T00:00:00",
         "aboutAuthor": "Description"
     }
+]
+```
+### GetAllAuthorById
+#### Grąžina autorių pagal id
+#### Request
+```http
+GET https://localhost:7031/api/authors/{authorId}
+```
+#### Response
+```http
+Status 200
+{
+    "id": 1,
+    "firstName": "Name",
+    "lastName": "LastName",
+    "dateOfBirth": "1965-07-31T00:00:00",
+    "aboutAuthor": "Description"
 }
 ```
-
+### CreateAuthor
+#### Sukuria naują autorių
+#### Request
+```http
+POST https://localhost:7031/api/authors
+```
+#### Request Body
+```http
+{
+    "FirstName": "Name",
+    "LastName": "LastName",
+    "DateOfBirth": "1835-11-30",
+    "AboutAuthor": "Author description"
+}
+```
+#### Response
+```http
+Status 201
+{
+    "id": 1,
+    "FirstName": "Name",
+    "LastName": "LastName",
+    "DateOfBirth": "1835-11-30",
+    "AboutAuthor": "Author description"
+}
+```
+### UpdateAuthor
+#### Atnaujina autoriaus aprašymą
+#### Request
+```http
+PUT https://localhost:7031/api/authors/1
+```
+#### Request Body
+```http
+{
+    "AboutAuthor": "New description"
+}
+```
+#### Response
+```http
+Status 200
+{
+    "id": 1,
+    "FirstName": "Name",
+    "LastName": "LastName",
+    "DateOfBirth": "1835-11-30",
+    "AboutAuthor": "New description"
+}
+```
+### DeleteAuthor
+#### Ištrina autorių
+#### Request
+```http
+PUT https://localhost:7031/api/authors/1
+```
+#### Response
+```http
+Status 204
+```
