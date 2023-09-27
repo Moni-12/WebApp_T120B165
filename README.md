@@ -283,3 +283,163 @@ DELETE https://localhost:7031/api/authors/{authorId}/boooks/{bookId}
 ```http
 Status 204
 ```
+## 2.2. Review API metodai
+### GetAllReviews
+#### Grąžina visas knygas, kurios priklauso pasirinktai knygai
+#### Request
+```http
+GET https://localhost:7031/api/authors/{authorId}/books/{bookId}/reviews
+```
+#### Response
+```http
+Status 200
+[
+    {
+        "id": 1,
+        "content": "Content",
+        "creationDate": "2023-09-27T23:36:09.7917247",
+        "book": {
+                "id": 3,
+                "title": "Title",
+                "description": "Description",
+                "releaseDate": "1998-07-02T00:00:00",
+                "genre": "Genre",
+                "author": {
+                    "id": 1,
+                    "FirstName": "Name",
+                    "LastName": "LastName",
+                    "DateOfBirth": "1835-11-30",
+                    "AboutAuthor": "Author description"
+                }
+        }
+    },
+    {
+        "id": 2,
+        "content": "Nice!",
+        "creationDate": "2023-09-27T23:36:22.3938896",
+        "book": {
+                "id": 3,
+                "title": "Title",
+                "description": "Description",
+                "releaseDate": "1998-07-02T00:00:00",
+                "genre": "Genre",
+                "author": {
+                    "id": 1,
+                    "FirstName": "Name",
+                    "LastName": "LastName",
+                    "DateOfBirth": "1835-11-30",
+                    "AboutAuthor": "Author description"
+                }
+        }
+    }
+]
+```
+### GetReviewById
+#### Grąžina atsiliepimą pagal id, jei pasirinkta knyga egzistuoja
+#### Request
+```http
+GET https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews/{reviewId}
+```
+#### Response
+```http
+Status 200
+{
+        "id": 1,
+        "content": "Content",
+        "creationDate": "2023-09-27T23:36:09.7917247",
+        "book": {
+                "id": 3,
+                "title": "Title",
+                "description": "Description",
+                "releaseDate": "1998-07-02T00:00:00",
+                "genre": "Genre",
+                "author": {
+                    "id": 1,
+                    "FirstName": "Name",
+                    "LastName": "LastName",
+                    "DateOfBirth": "1835-11-30",
+                    "AboutAuthor": "Author description"
+                }
+        }
+}
+```
+### CreateReview
+#### Sukuria naują atsiliepimą, jei pasirinkta knyga egzistuoja
+#### Request
+```http
+POST https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews
+```
+#### Request Body
+```http
+{
+    "Content": "Content"
+}
+```
+#### Response
+```http
+Status 201
+{
+        "id": 1,
+        "content": "Content",
+        "creationDate": "2023-09-27T23:36:09.7917247",
+        "book": {
+                "id": 3,
+                "title": "Title",
+                "description": "Description",
+                "releaseDate": "1998-07-02T00:00:00",
+                "genre": "Genre",
+                "author": {
+                    "id": 1,
+                    "FirstName": "Name",
+                    "LastName": "LastName",
+                    "DateOfBirth": "1835-11-30",
+                    "AboutAuthor": "Author description"
+                }
+        }
+}
+```
+### UpdateReview
+#### Atnaujina atsiliepimo turinį
+#### Request
+```http
+PUT https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews
+```
+#### Request Body
+```http
+{
+    "Content": "New content"
+}
+```
+#### Response
+```http
+Status 200
+{
+        "id": 1,
+        "content": "New content",
+        "creationDate": "2023-09-27T23:36:09.7917247",
+        "book": {
+                "id": 3,
+                "title": "Title",
+                "description": "Description",
+                "releaseDate": "1998-07-02T00:00:00",
+                "genre": "Genre",
+                "author": {
+                    "id": 1,
+                    "FirstName": "Name",
+                    "LastName": "LastName",
+                    "DateOfBirth": "1835-11-30",
+                    "AboutAuthor": "Author description"
+                }
+        }
+}
+```
+### DeleteReview
+#### Ištrina atsiliepimą
+#### Request
+```http
+DELETE https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews/{reviewId}
+```
+#### Response
+```http
+Status 204
+```
