@@ -115,7 +115,7 @@ Status 201
 #### Atnaujina autoriaus aprašymą
 #### Request
 ```http
-PUT https://localhost:7031/api/authors/1
+PUT https://localhost:7031/api/authors/{authorId}
 ```
 #### Request Body
 ```http
@@ -138,7 +138,7 @@ Status 200
 #### Ištrina autorių
 #### Request
 ```http
-DELETE https://localhost:7031/api/authors/1
+DELETE https://localhost:7031/api/authors/{authorId}
 ```
 #### Response
 ```http
@@ -402,7 +402,7 @@ Status 201
 #### Atnaujina atsiliepimo turinį
 #### Request
 ```http
-PUT https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews
+PUT https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews/{reviewId}
 ```
 #### Request Body
 ```http
