@@ -36,5 +36,26 @@ Administratorius galės:
 
 Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne Azure serveryje.
 
-![deployment](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/fbc44d28-aefe-48c1-abce-7b1fe05e1a4d)
+![deployment](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/6d2f6669-b23d-4971-9898-64bb7e4553f9)
+
+# 2. API dokumentacija
+Šioje sistemoje yra trys hierachiškai susiję klasės Author->Book->Review. Kiekvienos klasės objektams skaityti, modifikuoti, atnaujinti ir trinti yra po API metodą.
+
+## 2.1. Author API metodai
+## Endpoints
+
+List and describe the available API endpoints. Use sub-sections for each endpoint, including a brief description, request details, and response details.
+
+### Endpoint 1
+
+#### Endpoint 1 Description
+
+Provide a detailed description of what this endpoint does and any required parameters or options.
+
+#### Request
+
+Describe the request format, including HTTP method, headers, and any required or optional parameters. Provide examples if possible.
+
+```http
+GET /endpoint1
 
