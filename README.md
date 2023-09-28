@@ -31,7 +31,7 @@ Administratorius galės:
 # 2. Architektūra
 Šiai internetinei svetaine realizuoti naudojama trijų sluoksnių architektūra.
 * Klientinei daliai (angl. front-end) - React.js
-* Serverinei daliai (angl. back-end) - C# .NET Core
+* Serverinei daliai (angl. back-end) - C# ASP.NET Core
 * Duomenų bazė - MySQL
 
 Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne Azure serveryje.
