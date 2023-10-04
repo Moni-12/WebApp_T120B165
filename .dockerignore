@@ -1,4 +1,2 @@
-bin/
-obj/
-out/
-TestResults/
+BookWebApp/bin/
+BookWebApp/obj/
