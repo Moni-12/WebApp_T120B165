@@ -4,7 +4,9 @@ using BookWebApp.Data.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.JsonWebTokens;
+using Microsoft.Win32;
 using System.Security.Claims;
+using static BookWebApp.Auth.Model.AuthDtos;
 using static BookWebApp.Data.Dtos.Authors.AuthorsDto;
 
 namespace BookWebApp.Controllers
@@ -64,7 +66,8 @@ namespace BookWebApp.Controllers
             await _authorsRepository.CreateAsync(author);
 
             // 201
-            return Created("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
+            return CreatedAtAction("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
+            //return Created("", );
         }
 
         [HttpPut]
