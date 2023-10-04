@@ -44,6 +44,7 @@ Administratorius galės:
 ## 2.1. Author API metodai
 ### GetAllAuthors
 #### Grąžina visus autorius sistemoje
+#### Autorizacijos lygis: prieinama visiems naudotojams
 #### Request
 ```http
 GET https://localhost:7031/api/authors
@@ -70,6 +71,7 @@ Status 200
 ```
 ### GetAuthorById
 #### Grąžina autorių pagal id
+#### Autorizacijos lygis: prieinama visiems naudotojams
 #### Request
 ```http
 GET https://localhost:7031/api/authors/{authorId}
@@ -87,6 +89,7 @@ Status 200
 ```
 ### CreateAuthor
 #### Sukuria naują autorių
+#### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
 POST https://localhost:7031/api/authors
@@ -113,6 +116,7 @@ Status 201
 ```
 ### UpdateAuthor
 #### Atnaujina autoriaus aprašymą
+#### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
 PUT https://localhost:7031/api/authors/{authorId}
@@ -136,6 +140,7 @@ Status 200
 ```
 ### DeleteAuthor
 #### Ištrina autorių
+#### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
 DELETE https://localhost:7031/api/authors/{authorId}
@@ -147,6 +152,7 @@ Status 204
 ## 2.2. Book API metodai
 ### GetAllBooks
 #### Grąžina visas knygas, kurios priklauso pasirinktam autoriui
+#### Autorizacijos lygis: prieinama visiems naudotojams
 #### Request
 ```http
 GET https://localhost:7031/api/authors/{authorId}/books
@@ -187,6 +193,7 @@ Status 200
 ```
 ### GetBookById
 #### Grąžina knygą pagal id, jei pasirinktas autorius irgi egzistuoja
+#### Autorizacijos lygis: prieinama visiems naudotojams
 #### Request
 ```http
 GET https://localhost:7031/api/authors/{authorId}/boooks/{bookId}
@@ -211,6 +218,7 @@ Status 200
 ```
 ### CreateBook
 #### Sukuria naują knygą, jei pasirinktas autorius egzistuoja
+#### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
 POST https://localhost:7031/api/authors/{authorId}/books
@@ -244,6 +252,7 @@ Status 201
 ```
 ### UpdateBook
 #### Atnaujina knygos aprašymą ir žanrą
+#### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
 PUT https://localhost:7031/api/authors/{authorId}/boooks/{bookId}
@@ -275,6 +284,7 @@ Status 200
 ```
 ### DeleteBook
 #### Ištrina knygą
+#### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
 DELETE https://localhost:7031/api/authors/{authorId}/boooks/{bookId}
@@ -286,6 +296,7 @@ Status 204
 ## 2.2. Review API metodai
 ### GetAllReviews
 #### Grąžina visas knygas, kurios priklauso pasirinktai knygai
+#### Autorizacijos lygis: prieinama visiems naudotojams
 #### Request
 ```http
 GET https://localhost:7031/api/authors/{authorId}/books/{bookId}/reviews
@@ -336,6 +347,7 @@ Status 200
 ```
 ### GetReviewById
 #### Grąžina atsiliepimą pagal id, jei pasirinkta knyga egzistuoja
+#### Autorizacijos lygis: prieinama visiems naudotojams
 #### Request
 ```http
 GET https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews/{reviewId}
@@ -365,6 +377,7 @@ Status 200
 ```
 ### CreateReview
 #### Sukuria naują atsiliepimą, jei pasirinkta knyga egzistuoja
+#### Autorizacijos lygis: gali atlikti prisijungęs naudotojas ir administratorius
 #### Request
 ```http
 POST https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews
@@ -400,6 +413,7 @@ Status 201
 ```
 ### UpdateReview
 #### Atnaujina atsiliepimo turinį
+#### Autorizacijos lygis: gali prisijungęs naudotojas keisti tik savo sukurtą atsiliepimą ir administratorius gali keisti visus atsiliepimus
 #### Request
 ```http
 PUT https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews/{reviewId}
@@ -435,6 +449,7 @@ Status 200
 ```
 ### DeleteReview
 #### Ištrina atsiliepimą
+#### Autorizacijos lygis: gali prisijungęs naudotojas ištrinti tik savo sukurtą atsiliepimą ir administratorius gali ištrinti visus atsiliepimus
 #### Request
 ```http
 DELETE https://localhost:7031/api/authors/{authorId}/boooks/{bookId}/reviews/{reviewId}
