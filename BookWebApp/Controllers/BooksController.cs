@@ -78,7 +78,7 @@ namespace BookWebApp.Controllers
             {
                 Title = createBookDto.Title,
                 Description = createBookDto.Description,
-                ReleaseDate = createBookDto.ReleaseDate,
+                ReleaseDate = createBookDto.ReleaseDate.ToUniversalTime(),
                 Genre = createBookDto.Genre,
                 Author = author
             };

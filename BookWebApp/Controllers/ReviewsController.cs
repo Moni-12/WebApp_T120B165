@@ -98,7 +98,7 @@ namespace BookWebApp.Controllers
             var review = new Review
             {
                 Content = createReviewDto.Content,
-                CreationDate = DateTime.Now,
+                CreationDate = DateTime.UtcNow,
                 Book = book,
                 UserId = User.FindFirstValue(JwtRegisteredClaimNames.Sub)
             };

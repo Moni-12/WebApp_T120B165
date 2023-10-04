@@ -59,15 +59,15 @@ namespace BookWebApp.Controllers
             {
                 FirstName = createAuthorDto.FirstName,
                 LastName = createAuthorDto.LastName,
-                DateOfBirth = createAuthorDto.DateOfBirth,
+                DateOfBirth = createAuthorDto.DateOfBirth.ToUniversalTime(),
                 AboutAuthor = createAuthorDto.AboutAuthor
             };
 
             await _authorsRepository.CreateAsync(author);
 
             // 201
-            return CreatedAtAction("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
-            //return Created("", );
+            //return CreatedAtAction("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
+            return Created("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
         }
 
         [HttpPut]
