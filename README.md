@@ -36,7 +36,7 @@ Administratorius galės:
 
 Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne Azure serveryje.
 
-![deployment](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/6d2f6669-b23d-4971-9898-64bb7e4553f9)
+![deployment](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/9fce5fd3-4dbc-4afc-adf0-5c466d1aa1e0)
 
 # 2. API dokumentacija
 Šioje sistemoje yra trys hierachiškai susiję klasės Author->Book->Review. Kiekvienos klasės objektams skaityti, modifikuoti, atnaujinti ir trinti yra po API metodą.
