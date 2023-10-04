@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookWebApp.Migrations
 {
     [DbContext(typeof(ForumDbContext))]
-    [Migration("20231004202432_Initial migration")]
+    [Migration("20231004212103_Initial migration")]
     partial class Initialmigration
     {
         /// <inheritdoc />
