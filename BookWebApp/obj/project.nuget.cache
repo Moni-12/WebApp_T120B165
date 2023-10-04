@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rUUHatr10lsQagHZ8B+YrZfFEDTcdfqYIlStPuswcnH9gvJYq7FawJLWwoLnNI/iXtOJyY2t/xxynmhD5V5/Gw==",
+  "dgSpecHash": "R54w2bizljP7WQ/1ufgfF6pEocsYzbogvxrutTXppGprF41XsDZQLPwbUTsaL6+BZNnXghIRKy2yJbDXjMMtwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\BookWebApp\\BookWebApp.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,8 @@
     "C:\\Users\\monik\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\monik\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
+    "C:\\Users\\monik\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",

@@ -81,3 +81,5 @@ C:\Users\monik\Documents\7 semestras\Saitynai\BookWebApp\BookWebApp\bin\Debug\ne
 C:\Users\monik\Documents\7 semestras\Saitynai\BookWebApp\BookWebApp\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\monik\Documents\7 semestras\Saitynai\BookWebApp\BookWebApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\monik\Documents\7 semestras\Saitynai\BookWebApp\BookWebApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\monik\Documents\7 semestras\Saitynai\BookWebApp\BookWebApp\bin\Debug\net6.0\Npgsql.dll
+C:\Users\monik\Documents\7 semestras\Saitynai\BookWebApp\BookWebApp\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

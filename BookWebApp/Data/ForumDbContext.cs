@@ -7,13 +7,20 @@ namespace BookWebApp.Data
 {
     public class ForumDbContext : IdentityDbContext<ForumRestUser>
     {
+        private readonly IConfiguration _configuration;
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Review> Reviews { get; set; }
 
+        public ForumDbContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: "Data Source=LAPTOP-R6U0KL49\\SQLEXPRESS; Initial Catalog=BookAppDb;Trusted_Connection=True;TrustServerCertificate=True;");
+            //optionsBuilder.UseSqlServer(connectionString: "Data Source=LAPTOP-R6U0KL49\\SQLEXPRESS; Initial Catalog=BookAppDb;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseNpgsql(_configuration.GetValue<string>("PostgreSQLConnectionString"));
         }
     }
 }
