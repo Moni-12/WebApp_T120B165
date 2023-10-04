@@ -1,7 +1,11 @@
-﻿using BookWebApp.Data.Dtos.Books;
+﻿using BookWebApp.Auth.Model;
+using BookWebApp.Data.Dtos.Books;
 using BookWebApp.Data.Entities;
 using BookWebApp.Data.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
+using System.Security.Claims;
 using static BookWebApp.Data.Dtos.Books.BooksDto;
 
 namespace BookWebApp.Controllers
@@ -61,6 +65,7 @@ namespace BookWebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = ForumRoles.Admin)]
         public async Task<ActionResult<BookDto>> Create(int authorId, CreateBookDto createBookDto)
         {
             var author = await _authorsRepository.GetOneAsync(authorId);
@@ -86,6 +91,7 @@ namespace BookWebApp.Controllers
 
         [HttpPut]
         [Route("{bookId}")]
+        [Authorize(Roles = ForumRoles.Admin)]
         public async Task<ActionResult<BookDto>> Update(int authorId, int bookId, UpdateBookDto updateBookDto)
         {
             var author = await _authorsRepository.GetOneAsync(authorId);
@@ -110,6 +116,7 @@ namespace BookWebApp.Controllers
 
         [HttpDelete]
         [Route("{bookId}")]
+        [Authorize(Roles = ForumRoles.Admin)]
         public async Task<ActionResult> Delete(int authorId, int bookId)
         {
             var author = await _authorsRepository.GetOneAsync(authorId);

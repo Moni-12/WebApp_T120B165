@@ -1,4 +1,7 @@
-﻿namespace BookWebApp.Data.Entities
+﻿using BookWebApp.Auth.Model;
+using System.ComponentModel.DataAnnotations;
+
+namespace BookWebApp.Data.Entities
 {
     public class Book
     {

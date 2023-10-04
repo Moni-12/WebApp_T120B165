@@ -1,9 +1,11 @@
-﻿using BookWebApp.Data.Entities;
+﻿using BookWebApp.Auth.Model;
+using BookWebApp.Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookWebApp.Data
 {
-    public class ForumDbContext : DbContext
+    public class ForumDbContext : IdentityDbContext<ForumRestUser>
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }

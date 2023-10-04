@@ -1,7 +1,11 @@
-﻿using BookWebApp.Data.Dtos.Reviews;
+﻿using BookWebApp.Auth.Model;
+using BookWebApp.Data.Dtos.Reviews;
 using BookWebApp.Data.Entities;
 using BookWebApp.Data.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
+using System.Security.Claims;
 using static BookWebApp.Data.Dtos.Books.BooksDto;
 using static BookWebApp.Data.Dtos.Reviews.ReviewsDto;
 
@@ -22,12 +26,15 @@ namespace BookWebApp.Controllers
         private readonly IAuthorsRepository _authorsRepository;
         private readonly IBooksRepository _booksRepository;
         private readonly IReviewsRepository _reviewsRepository;
+        private readonly IAuthorizationService _authorizationService;
 
-        public ReviewsController(IAuthorsRepository authorsRepository, IBooksRepository booksRepository, IReviewsRepository reviewsRepository)
+        public ReviewsController(IAuthorsRepository authorsRepository, IBooksRepository booksRepository, IReviewsRepository reviewsRepository,
+            IAuthorizationService authorizationService)
         {
             _authorsRepository = authorsRepository;
             _booksRepository = booksRepository;
             _reviewsRepository = reviewsRepository;
+            _authorizationService = authorizationService;
         }
 
 
@@ -74,6 +81,7 @@ namespace BookWebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         public async Task<ActionResult<ReviewDto>> Create(int authorId, int bookId, CreateReviewDto createReviewDto)
         {
             var author = await _authorsRepository.GetOneAsync(authorId);
@@ -91,7 +99,8 @@ namespace BookWebApp.Controllers
             {
                 Content = createReviewDto.Content,
                 CreationDate = DateTime.Now,
-                Book = book
+                Book = book,
+                UserId = User.FindFirstValue(JwtRegisteredClaimNames.Sub)
             };
 
             await _reviewsRepository.CreateAsync(review);
@@ -102,6 +111,7 @@ namespace BookWebApp.Controllers
 
         [HttpPut]
         [Route("{reviewId}")]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         public async Task<ActionResult<ReviewDto>> Update(int authorId, int bookId, int reviewId, UpdateReviewDto updateReviewDto)
         {
             var author = await _authorsRepository.GetOneAsync(authorId);
@@ -120,6 +130,13 @@ namespace BookWebApp.Controllers
                 return NotFound(); // 404
             }
 
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, review, PolicyNames.ResourceOwner);
+            if (!authorizationResult.Succeeded)
+            {
+                return Forbid(); // 403
+            }
+
+
             review.Content = updateReviewDto.Content;
 
             await _reviewsRepository.UpdateAsync(review);
@@ -129,6 +146,7 @@ namespace BookWebApp.Controllers
 
         [HttpDelete]
         [Route("{reviewId}")]
+        [Authorize(Roles = ForumRoles.ForumUser)]
         public async Task<ActionResult> Delete(int authorId, int bookId, int reviewId)
         {
             var author = await _authorsRepository.GetOneAsync(authorId);
@@ -145,6 +163,12 @@ namespace BookWebApp.Controllers
             if (review == null)
             {
                 return NotFound(); // 404
+            }
+
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, review, PolicyNames.ResourceOwner);
+            if (!authorizationResult.Succeeded)
+            {
+                return Forbid(); // 403
             }
 
             await _reviewsRepository.DeleteAsync(review);
