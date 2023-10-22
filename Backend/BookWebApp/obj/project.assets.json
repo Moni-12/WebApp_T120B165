@@ -3961,11 +3961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\BookWebApp\\BookWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\Backend\\BookWebApp\\BookWebApp.csproj",
       "projectName": "BookWebApp",
-      "projectPath": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\BookWebApp\\BookWebApp.csproj",
+      "projectPath": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\Backend\\BookWebApp\\BookWebApp.csproj",
       "packagesPath": "C:\\Users\\monik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\BookWebApp\\obj\\",
+      "outputPath": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\Backend\\BookWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\monik\\AppData\\Roaming\\NuGet\\NuGet.Config",
