@@ -61,7 +61,7 @@ return (
                 {books.map((book) => (
                     <li className="flex justify-between gap-x-6 py-5">
                         <div className="flex min-w-0 gap-x-4">
-                        <svg fill="#000000" height="48px" width="48px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 511 511" xmlSpace="preserve">
+                        <svg className="blinking-icon" fill="#000000" height="48px" width="48px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 511 511" xmlSpace="preserve">
                         <g>
 	<path d="M487.5,128.106H479v-24.5c0-2.905-1.678-5.549-4.307-6.786C405.088,64.066,325.408,63.6,255.5,95.371
 		C185.592,63.6,105.912,64.067,36.307,96.82C33.678,98.057,32,100.701,32,103.606v24.5h-8.5c-12.958,0-23.5,10.542-23.5,23.5v264
