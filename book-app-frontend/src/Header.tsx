@@ -1,67 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import axios from 'axios';
+import React, { useState } from "react";
+import appState from "./AppState";
+import Auth from "./Auth/Auth";
 
-interface Author {
-  id: number;
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
-  aboutAuthor: string;
-}
+const Header: React.FC = () => {
+	const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+	const [isMenuHidden, setIsMenuHidden] = useState(true);
 
-interface Book {
-  id: number;
-  title: string;
-  description: string;
-  releaseDate: string;
-  genre: string;
-  author: Author;
-}
+    const LogOut = () => {
+        appState.userId = "";
+        appState.userTitle = "";
+        appState.authJwt = "";
+        appState.roles = [];
+    
+        appState.isLoggedIn.value = false;
 
+        localStorage.setItem('userTitle', "");
+        localStorage.setItem('roles', "");
+        localStorage.setItem('authJwt', "");
+        localStorage.setItem('isLoggedIn', 'false');
+  
+        window.location.href = '/';
+        console.log("after log out", appState.isLoggedIn.value);
+  
+      };
 
-const HomePage: React.FC = () => {
-  const [authors, setAuthors] = useState<Author[]>([]);
-  const [books, setBooks] = useState<Book[]>([]);
-
-const fetchAuthorsAndBooks = async () => {
-    try {
-      const authorsResponse = await axios.get<Author[]>("https://whale-app-4h4zj.ondigitalocean.app/api/authors");
-      setAuthors(authorsResponse.data);
-  
-      const bookPromises = authorsResponse.data.map(async (author) => {
-        try {
-          const response = await axios.get<Book[]>(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${author.id}/books`);
-          return response.data;
-        } catch (error) {
-          console.error("Error fetching books:", error);
-          return [];
-        }
-      });
-  
-      const bookResponses = await Promise.all(bookPromises);
-      const allBooks = bookResponses.flat(); // Flatten the array of arrays
-  
-      setBooks(allBooks);
-    } catch (error) {
-      console.error("Error fetching authors:", error);
-    }
-  };
-  
-  useEffect(() => {
-    fetchAuthorsAndBooks();
-  }, []);
-  
-return (
-    <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-lg">
-            <h1>Books</h1>
-            <ul role="list" className="divide-y divide-gray-100">
-                {books.map((book) => (
-                    <li className="flex justify-between gap-x-6 py-5">
-                        <div className="flex min-w-0 gap-x-4">
-                        <svg fill="#000000" height="48px" width="48px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 511 511" xmlSpace="preserve">
+  return (
+    <nav className="bg-white shadow">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="flex h-16 justify-between">
+      <div className="flex">
+        <div className="flex flex-shrink-0 items-center">
+        <svg fill="#000000" height="48px" width="48px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 511 511" xmlSpace="preserve">
                         <g>
 	<path d="M487.5,128.106H479v-24.5c0-2.905-1.678-5.549-4.307-6.786C405.088,64.066,325.408,63.6,255.5,95.371
 		C185.592,63.6,105.912,64.067,36.307,96.82C33.678,98.057,32,100.701,32,103.606v24.5h-8.5c-12.958,0-23.5,10.542-23.5,23.5v264
@@ -142,24 +111,77 @@ return (
 		c-3.951,1.242-6.148,5.452-4.907,9.403C65.352,144.716,68.309,146.767,71.498,146.767z"/>
 </g>
                         </svg>
-                        {/* <img className="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/> */}
-                        <div className="min-w-0 flex-auto">
-                            <p className="text-sm font-semibold leading-6 text-gray-900">{book.title}</p>
-                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">By {book.author.firstName} {book.author.lastName}</p>
-                        </div>
-                        </div>
-                        <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                        <p className="text-sm leading-6 text-gray-900">Release date:</p>
-                        <p className="mt-1 text-xs leading-5 text-gray-500">{new Date(book.releaseDate).toLocaleDateString("lt-LT")}</p>
-                        </div>
-                    </li>
-                ))}
+        </div>
+        <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <a href="/" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Books</a>
+          <a href="/authors-list" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Authors</a>
 
-            </ul>
-            
-     </div>
+        </div>
+      </div>
+	  <div className="hidden sm:ml-6 sm:flex sm:items-center">
+        {!isLoggedIn ? (
+                <><a href="/login" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Log in</a>
+                <a href="/register" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Register</a></>
+              ) : (
+                <button className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-2"
+                onClick={LogOut}>Log out</button>
+              )}
+        
     </div>
+
+      <div className="-mr-2 flex items-center sm:hidden">
+        {/* <!-- Mobile menu button --> */}
+        <button type="button" className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu"
+			aria-expanded={isMenuHidden}
+			onClick={() => setIsMenuHidden(!isMenuHidden)}
+			>
+          <span className="sr-only">Open main menu</span>
+          {/* <!--
+            Icon when menu is closed.
+
+            Heroicon name: outline/bars-3
+
+            Menu open: "hidden", Menu closed: "block"
+          --> */}
+          <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          {/* <!--
+            Icon when menu is open.
+
+            Heroicon name: outline/x-mark
+
+            Menu open: "block", Menu closed: "hidden"
+          --> */}
+          <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Mobile menu, show/hide based on menu state. --> */}
+  <div className="sm:hidden" id="mobile-menu" hidden={isMenuHidden}>
+    <div className="space-y-1 pt-2 pb-3">
+      <a href="/" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Books</a>
+      <a href="/authors-list" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Authors</a>
+
+      <Auth />
+    </div>
+    <div className="border-t border-gray-200 pt-4 pb-3">
+	{!isLoggedIn ? (
+                <><a href="/login" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Log in</a>
+                <a href="/register" className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Register</a></>
+              ) : (
+                <button className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-2"
+                onClick={LogOut}>Log out</button>
+              )}
+    </div>
+  </div>
+</nav>
   );
 };
 
-export default HomePage;
+export default Header;
+

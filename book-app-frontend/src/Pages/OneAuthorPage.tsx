@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Login: React.FC = () => {
+const OneAuthorPage: React.FC = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -74,4 +74,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default OneAuthorPage;
