@@ -25,17 +25,13 @@ const fetchAuthorsAndBooks = async () => {
         try {
           const response = await axios.get<Book[]>(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${author.id}/books`);
         //   return response.data;
-		  setBooks((prevBooks) => [...response.data]);
+		  setBooks((prevBooks) => [...prevBooks, ...response.data]);
         } catch (error) {
           console.error("Error fetching books:", error);
           return [];
         }
       });
   
-    //   const bookResponses = await Promise.all(bookPromises);
-    //   const allBooks = bookResponses.flat(); // Flatten the array of arrays
-
-    //   setBooks(allBooks);
     } catch (error) {
       console.error("Error fetching authors:", error);
     }
@@ -64,10 +60,10 @@ return (
                             <p className="mt-1 truncate text-xs leading-5 text-gray-500">By {book.author.firstName} {book.author.lastName}</p>
                         </div>
                         </div>
-                        <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                        <p className="text-sm leading-6 text-gray-900">Release date:</p>
-                        <p className="mt-1 text-xs leading-5 text-gray-500">{new Date(book.releaseDate).toLocaleDateString("lt-LT")}</p>
-                        </div>
+                        {/* <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end"> */}
+                        {/* <p className="text-sm leading-6 text-gray-900">Release date:</p> */}
+                        {/* <p className="mt-1 text-xs leading-5 text-gray-500">{new Date(book.releaseDate).toLocaleDateString("lt-LT")}</p> */}
+                        {/* </div> */}
                     </li>
 					</Link>
                 ))}

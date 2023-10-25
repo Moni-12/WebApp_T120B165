@@ -13,6 +13,7 @@ import OneBookPage from './Pages/OneBookPage';
 import Test from "./Test";
 import CreateAuthorPage from './Pages/CreateAuthorPage';
 import EditAuthorPage from './Pages/EditAuhtorPage';
+import CreateBookPage from './Pages/CreateBookPage';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/test" Component={Test} />
             <Route path="/create-author" Component={CreateAuthorPage} />
             <Route path="/edit-author/:authorid" Component={EditAuthorPage} />
+            <Route path="/author/:authorid/create-book" Component={CreateBookPage} />
           </Routes>
         </div>
       </Router>

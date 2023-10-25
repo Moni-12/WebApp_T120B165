@@ -72,6 +72,10 @@ const CreateAuthorPage: React.FC = () => {
     setSelectedDate(date);
   };
 
+  const handleCancel = () => {
+    window.location.href = "/authors-list";
+  };
+
   return (
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -142,10 +146,20 @@ const CreateAuthorPage: React.FC = () => {
             <br></br>
 
             <div>
-              <button type="submit" className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 onClick={handleSubmit}
-                >
+              >
                 Create
+              </button>
+              <button
+                type="button"
+                className="mt-3 flex w-full justify-center rounded-md border border-gray-300 py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                // Add the functionality to cancel the update
+                onClick={handleCancel}
+              >
+                Cancel
               </button>
             </div>
             {error && <p style={{ color: "red" }}>{error}</p>}
