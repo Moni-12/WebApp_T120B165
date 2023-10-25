@@ -11,6 +11,7 @@ import Header from './Header';
 import AuthorsPage from './Pages/AuthorsPage';
 import OneBookPage from './Pages/OneBookPage';
 import Test from "./Test";
+import CreateAuthorPage from './Pages/CreateAuthorPage';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/authors-list" Component={AuthorsPage} />
             <Route path="/author/:authorid/book/:bookid" Component={OneBookPage} />
             <Route path="/test" Component={Test} />
+            <Route path="/create-author" Component={CreateAuthorPage} />
           </Routes>
         </div>
       </Router>

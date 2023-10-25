@@ -18,9 +18,10 @@ const Register: React.FC = () => {
       });
       setError("Registration successful.");
       console.log("Registration successful");
+      window.location.href = "/login";
       // Redirect to another page or perform other actions
     } catch (error) {
-      setError("Username or password is invalid.");
+      setError("Fill all the fields correctly.");
       console.error("Error while doing registration in:", error);
     }
   };

@@ -26,6 +26,7 @@ const Login: React.FC = () => {
       // Access the roles
       const roles: string[] = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       
+      appState.userId = decodedToken.sub;
 			appState.userTitle = userName;
 			appState.roles = roles;
 			appState.authJwt = accessToken;
@@ -37,6 +38,7 @@ const Login: React.FC = () => {
 
 			appState.isLoggedIn.value = true;
       console.log("Login successful", response.data);
+      localStorage.setItem('userId', appState.userId);
       localStorage.setItem('userTitle', userName);
       localStorage.setItem('roles', JSON.stringify(roles));
       localStorage.setItem('authJwt', accessToken);

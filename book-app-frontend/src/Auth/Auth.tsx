@@ -28,6 +28,7 @@ const Auth: React.FC = () => {
         localStorage.setItem('roles', "");
         localStorage.setItem('authJwt', "");
         localStorage.setItem('isLoggedIn', 'false');
+        localStorage.setItem('userId', "");
   
         window.location.href = '/';
         console.log("after log out", appState.isLoggedIn.value);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const OneBookPage: React.FC = () => {
+const CreateAuthorPage: React.FC = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -74,4 +74,4 @@ const OneBookPage: React.FC = () => {
   );
 };
 
-export default OneBookPage;
+export default CreateAuthorPage;
