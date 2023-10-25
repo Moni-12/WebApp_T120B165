@@ -10,5 +10,6 @@ namespace BookWebApp.Data.Entities
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string AboutAuthor { get; set; }
+        public string? PictureBase64 { get; set; }
     }
 }

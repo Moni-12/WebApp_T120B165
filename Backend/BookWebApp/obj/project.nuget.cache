@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "guluXjx2BXH0I2vLMQNWR+DHggmAxc061DxoOKx1+I7DApblzJihxxFxHNMjt4weVTn6EDZZCOw5hHCSPt9Vvw==",
+  "dgSpecHash": "j6nDh1V3z+b1PGlzPslNSBnLK2Ydey1rXwc8HU8FQal0teUysZ/+z6sHudvbEg47MqPeiB/sk3rQ/rhZcrOudg==",
   "success": true,
   "projectFilePath": "C:\\Users\\monik\\Documents\\7 semestras\\Saitynai\\BookWebApp\\Backend\\BookWebApp\\BookWebApp.csproj",
   "expectedPackageFiles": [
@@ -94,7 +94,11 @@
     "C:\\Users\\monik\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\monik\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\monik\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\monik\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\monik\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\monik\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\monik\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512",
+    "C:\\Users\\monik\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.22\\microsoft.netcore.app.host.win-x64.6.0.22.nupkg.sha512"
   ],
   "logs": []
 }

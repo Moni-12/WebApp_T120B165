@@ -3,6 +3,7 @@ using BookWebApp.Data.Entities;
 using BookWebApp.Data.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.Win32;
 using System.Security.Claims;
@@ -34,7 +35,7 @@ namespace BookWebApp.Controllers
         public async Task<IEnumerable<AuthorDto>> GetAll()
         {
             var authors = await _authorsRepository.GetListAsync();
-            return authors.Select(o => new AuthorDto(o.Id, o.FirstName, o.LastName, o.DateOfBirth, o.AboutAuthor));
+            return authors.Select(o => new AuthorDto(o.Id, o.FirstName, o.LastName, o.DateOfBirth, o.AboutAuthor, o.PictureBase64));
         }
 
         [HttpGet]
@@ -48,7 +49,7 @@ namespace BookWebApp.Controllers
                 return NotFound(); // 404
             }
 
-            return new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor);
+            return new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor, author.PictureBase64);
         }
 
         [HttpPost]
@@ -60,14 +61,15 @@ namespace BookWebApp.Controllers
                 FirstName = createAuthorDto.FirstName,
                 LastName = createAuthorDto.LastName,
                 DateOfBirth = createAuthorDto.DateOfBirth.ToUniversalTime(),
-                AboutAuthor = createAuthorDto.AboutAuthor
+                AboutAuthor = createAuthorDto.AboutAuthor,
+                PictureBase64 = createAuthorDto.PictureBase64
             };
 
             await _authorsRepository.CreateAsync(author);
 
             // 201
             //return CreatedAtAction("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
-            return Created("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
+            return Created("", new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor, author.PictureBase64));
         }
 
         [HttpPut]
@@ -83,9 +85,10 @@ namespace BookWebApp.Controllers
             }
 
             author.AboutAuthor = updateAuthorDto.AboutAuthor;
+            author.PictureBase64 = updateAuthorDto.PictureBase64;
             await _authorsRepository.UpdateAsync(author);
 
-            return Ok(new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor));
+            return Ok(new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor, author.PictureBase64));
         }
 
         [HttpDelete]

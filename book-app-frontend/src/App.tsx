@@ -9,6 +9,8 @@ import Footer from "./Footer";
 import HomePage from './Pages/HomePage';
 import Header from './Header';
 import AuthorsPage from './Pages/AuthorsPage';
+import OneBookPage from './Pages/OneBookPage';
+import Test from "./Test";
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
             <Route path="/login" Component={Login} />
             <Route path="/register" Component={Register} />
             <Route path="/authors-list" Component={AuthorsPage} />
+            <Route path="/author/:authorid/book/:bookid" Component={OneBookPage} />
+            <Route path="/test" Component={Test} />
           </Routes>
         </div>
       </Router>

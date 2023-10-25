@@ -1,76 +1,159 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { useParams } from "react-router-dom";
+
+import { Book } from "../Models/Book";
+import { Review } from "../Models/Review";
 
 const OneBookPage: React.FC = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const accessToken = localStorage.getItem('authJwt');
+  const { authorid, bookid } = useParams<{ authorid: string; bookid: string }>();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const [book, setBook] = useState<Book>();
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [userReview, setUserReview] = useState<string>('');
+
+  const fetchBook = async () => {
     try {
-      const response = await axios.post("https://whale-app-4h4zj.ondigitalocean.app/api/login", {
-        userName,
-        password,
-      });
-      const accessToken = response.data.accessToken; // Assuming your token is returned as accessToken
-      const expirationDate = new Date();
-      expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000);
-      Cookies.set("accessToken", accessToken, { expires: expirationDate }); // Set the token in a cookie that expires in 7 days
-      console.log("Login successful", response.data);
-      // Redirect to another page or perform other actions
+      const responseBook = await axios.get<Book>(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}/books/${bookid}`);
+      setBook(responseBook.data);
     } catch (error) {
-      setError("Username or password is invalid.");
-      console.error("Error logging in:", error);
+      // Handle error
     }
+  };
+
+  const fetchReviews = async () => {
+    try {
+      const responseReviews = await axios.get<Review[]>(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}/books/${bookid}/reviews`);
+      setReviews(responseReviews.data);
+    } catch (error) {
+      // Handle error
+    }
+  };
+
+  useEffect(() => {
+    fetchBook();
+    fetchReviews();
+  }, []);
+  
+  const submitReview = async () => {
+    try {
+      const response = await axios.post(
+        `https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}/books/${bookid}/reviews`,
+        { Content: userReview },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`, // Replace with your actual access token
+          },
+        }
+      );
+      console.log('Review created:', response.data);
+      setReviews((prevReviews) => [...prevReviews, response.data]); // Handle response data here
+    } catch (error) {
+      console.error('Error creating review:', error); // Handle error here
+    }
+  };
+
+  const handleReviewChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setUserReview(e.target.value);
   };
 
   return (
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        {/* <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"> */}
-        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Log in to your account</h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Or
-          <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500"> Register</a>
-        </p>
+      <div className="sm:mx-auto sm:w-full sm:max-w-2xl">
+    <div className="overflow-hidden bg-white shadow sm:rounded-lg">
+  <div className="px-4 py-5 sm:px-6">
+    <h3 className="text-lg font-medium leading-6 text-gray-900">{book?.title}</h3>
+    <p className="mt-1 max-w-2xl text-sm text-gray-500">Written by {book?.author.firstName} {book?.author.lastName}</p>
+  </div>
+  <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
+    <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+      <div className="sm:col-span-1">
+        <dt className="text-sm font-medium text-gray-500">Genre</dt>
+        <dd className="mt-1 text-sm text-gray-900">{book?.genre}</dd>
       </div>
-
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" action="#" method="POST">
-            <div>
-              <label htmlFor="userName" className="block text-sm font-medium text-gray-700">Username</label>
-              <div className="mt-1">
-                <input id="userName" name="userName" type="text" autoComplete="userName" required className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)} />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-              <div className="mt-1">
-                <input id="password" name="password" type="password" autoComplete="current-password" required className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)} />
-              </div>
-            </div>
-
-            <div>
-              <button type="submit" className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                onClick={handleSubmit}>
-                Log in
-              </button>
-            </div>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-          </form>
-
-
-        </div>
+      <div className="sm:col-span-1">
+        <dt className="text-sm font-medium text-gray-500">Release date</dt>
+        <dd className="mt-1 text-sm text-gray-900">{book?.releaseDate.toLocaleString("lt-LT").split('T')[0]}</dd>
       </div>
-    </div>
+      <div className="sm:col-span-2">
+        <dt className="text-sm font-medium text-gray-500">Description</dt>
+        <dd className="mt-1 text-sm text-gray-900">{book?.description}</dd>
+      </div>
+      <div className="sm:col-span-2">
+
+      <dt className="text-sm font-medium text-gray-500">Reviews</dt>
+      <dd className="mt-1 text-sm text-gray-900">
+      <ul role="list" className="divide-y divide-gray-200">
+        {reviews.length > 0 && reviews.map((review) => (
+          <li key={review.id}
+            className="flex justify-between gap-x-6 py-5"
+            >
+                     <div className="ml-3">
+            <p className="text-sm font-medium text-gray-900">Placeholder for username</p>
+            <p className="text-sm text-gray-500">{review.content}</p>
+          </div>
+          </li>
+        ))}
+        {reviews.length === 0 && (
+          <li 
+            className="flex justify-between gap-x-6 py-5"
+            >
+                     <div className="ml-3">
+            <p className="text-sm font-medium text-gray-900">There are no reviews</p>
+            {/* <p className="text-sm text-gray-500">{review.content}</p> */}
+          </div>
+          </li>
+        )}
+        {/* <li className="flex justify-between gap-x-6 py-5"> */}
+          <div className="ml-3">
+          {!isLoggedIn ? (
+              <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 ">
+                <div className="px-4 py-2 bg-white rounded-t-lg ">
+                    <label htmlFor="comment" className="sr-only">Your comment</label>
+                    <textarea id="comment"  className="w-full px-0 text-sm text-gray-900 bg-white border-0 " placeholder="To leave a review you have to login" 
+                      value={userReview}
+                      disabled
+                      onChange={handleReviewChange}
+                      ></textarea>
+                </div>
+            </div>
+              ) : (
+                  <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 ">
+                      <div className="px-4 py-2 bg-white rounded-t-lg ">
+                          <label htmlFor="comment" className="sr-only">Your comment</label>
+                          <textarea id="comment"  className="w-full px-0 text-sm text-gray-900 bg-white border-0 " placeholder="Write a review..." 
+                            value={userReview}
+                            required
+                            onChange={handleReviewChange}
+                            ></textarea>
+                      </div>
+                      <div className="flex items-center justify-between px-3 py-2 border-t">
+                          <button type="submit" 
+                            className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-blue-800"
+                            onClick={submitReview}
+                          >
+                              Post comment
+                          </button>
+                          <div className="flex pl-0 space-x-1 sm:pl-2">
+                          </div>
+                      </div>
+                  </div>
+              )}
+          
+          </div>
+          {/* </li> */}
+      </ul>
+      </dd>
+        
+      </div>
+    </dl>
+  </div>
+</div>
+</div>
+</div>
   );
 };
 
