@@ -92,7 +92,8 @@ const OneBookPage: React.FC = () => {
             className="flex justify-between gap-x-6 py-5"
             >
                      <div className="ml-3">
-            <p className="text-sm font-medium text-gray-900">Placeholder for username</p>
+                      
+            <p className="text-sm font-medium text-gray-900">username</p>
             <p className="text-sm text-gray-500">{review.content}</p>
           </div>
           </li>

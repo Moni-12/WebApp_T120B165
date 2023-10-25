@@ -4,6 +4,7 @@ interface Author {
     lastName: string;
     dateOfBirth: string;
     aboutAuthor: string;
+    pictureBase64: string | null;
   }
 
 export type {
