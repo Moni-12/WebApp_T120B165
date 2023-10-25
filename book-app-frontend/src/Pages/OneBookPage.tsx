@@ -85,7 +85,6 @@ const OneBookPage: React.FC = () => {
           },
         },
       );
-      // setReviews(prevReviews => prevReviews.filter(review => review.id !== reviewId));
       updateReviewContent(review.id, editedContent);
 
       // Handle the response if necessary

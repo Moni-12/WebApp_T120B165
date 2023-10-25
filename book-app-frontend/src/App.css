@@ -90,3 +90,18 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+
+
+input[type="file"]::-webkit-file-upload-button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(88 80 236 / var(--tw-bg-opacity))/* Add your desired background color here */;
+  border-width: 1px;
+  border-radius: 0.375rem;
+  /* color: Add your desired text color here; */
+  /* Add any other necessary styles */
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(81 69 205 / var(--tw-bg-opacity));
+}
