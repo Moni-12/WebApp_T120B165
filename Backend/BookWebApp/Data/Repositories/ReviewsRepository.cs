@@ -23,12 +23,12 @@ namespace BookWebApp.Data.Repositories
 
         public async Task<Review> GetOneAsync(int bookId, int reviewId)
         {
-            return await _forumDbContext.Reviews.FirstOrDefaultAsync(x => x.Id == reviewId && x.Book.Id == bookId);
+            return await _forumDbContext.Reviews.Include(r => r.User).FirstOrDefaultAsync(x => x.Id == reviewId && x.Book.Id == bookId);
         }
 
         public async Task<IReadOnlyList<Review>> GetListAsync(int bookId)
         {
-            return await _forumDbContext.Reviews.Where(x => x.Book.Id == bookId).ToListAsync();
+            return await _forumDbContext.Reviews.Include(r => r.User).Where(x => x.Book.Id == bookId).ToListAsync();
         }
 
         public async Task CreateAsync(Review review)
