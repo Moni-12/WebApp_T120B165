@@ -75,7 +75,7 @@ const AuthorsPage: React.FC = () => {
                 // }}
                 >
                 <div className="flex min-w-0 gap-x-4">
-                  <div
+                  <div className="flex min-w-0 gap-x-4"
                   onClick={(e) => {
                       handleAuthorClick(author);
                   }}>
