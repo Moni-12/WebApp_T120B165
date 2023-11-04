@@ -39,10 +39,10 @@ const AuthorsPage: React.FC = () => {
       });
       setAuthors(prevAuthors => prevAuthors.filter(author => author.id !== authorid));
       // Handle the response if necessary
-      console.log('Review deleted successfully:', response.data);
+      console.log('Author deleted successfully:', response.data);
     } catch (error) {
       // Handle any errors
-      console.error('Error deleting the review:', error);
+      console.error('Error deleting the Author:', error);
     }
   };
   
@@ -63,18 +63,22 @@ const AuthorsPage: React.FC = () => {
               <li 
                 key={author.id}
                 className="flex justify-between gap-x-6 py-5"
-                onClick={(e) => {
-                  const target = e.target as HTMLElement;
-                  if (
-                    !target.classList.contains("text-gray-500") &&
-                    !target.classList.contains("h-5") &&
-                    !target.classList.contains("w-5")
-                  ) {
-                    handleAuthorClick(author);
-                  }
-                }}
+                // onClick={(e) => {
+                //   const target = e.target as HTMLElement;
+                //   if (
+                //     !target.classList.contains("text-gray-500") &&
+                //     !target.classList.contains("h-5") &&
+                //     !target.classList.contains("w-5")
+                //   ) {
+                //     handleAuthorClick(author);
+                //   }
+                // }}
                 >
-                         <div className="flex min-w-0 gap-x-4">
+                <div className="flex min-w-0 gap-x-4">
+                  <div
+                  onClick={(e) => {
+                      handleAuthorClick(author);
+                  }}>
                         {author.pictureBase64 !== null && author.pictureBase64 !== "" &&(
                          <img className="h-12 w-12 flex-none rounded-full bg-gray-50" src={author.pictureBase64} alt="Uploaded" />
                          )}
@@ -113,6 +117,7 @@ const AuthorsPage: React.FC = () => {
                          </div>
                          <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                          </div>
+                    </div>
                          {(isAdmin) && (
             <div className="flex flex-end items-center ml-auto max-w-md">
               <div className="text-gray-500" 

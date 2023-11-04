@@ -14,6 +14,7 @@ import Test from "./Test";
 import CreateAuthorPage from './Pages/CreateAuthorPage';
 import EditAuthorPage from './Pages/EditAuhtorPage';
 import CreateBookPage from './Pages/CreateBookPage';
+import EditBookPage from './Pages/EditBookPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/create-author" Component={CreateAuthorPage} />
             <Route path="/edit-author/:authorid" Component={EditAuthorPage} />
             <Route path="/author/:authorid/create-book" Component={CreateBookPage} />
+            <Route path="/edit-book/author/:authorid/book/:bookid" Component={EditBookPage} />
           </Routes>
         </div>
       </Router>
