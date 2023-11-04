@@ -36,9 +36,12 @@ const fetchAuthorsAndBooks = async () => {
       console.error("Error fetching authors:", error);
     }
   };
-  
+  let fetchCount = 0;
   useEffect(() => {
-    fetchAuthorsAndBooks();
+    if (fetchCount === 0) {
+      fetchCount = fetchCount + 1;
+      fetchAuthorsAndBooks();
+    }
   }, []);
 
   const deleteBook = async (authorid: number, bookid: number) => {
@@ -61,26 +64,6 @@ return (
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-lg">
             <h1>Books</h1>
-            {/* <ul role="list" className="divide-y divide-gray-100">
-          {books.map((book) => (
-            <Link to={`/author/${book.author.id}/book/${book.id}`} className="flex min-w-0 gap-x-4" key={book.id}>
-              <li className="flex justify-between gap-x-6 py-5">
-                <div className="flex min-w-0 gap-x-4">
-                  <BooksSvg className="blinking-icon" />
-                  <div className="min-w-0 flex-auto">
-                    <p className="text-sm font-semibold leading-6 text-gray-900">{book.title}</p>
-                    <p className="mt-1 truncate text-xs leading-5 text-gray-500">By {book.author.firstName} {book.author.lastName}</p>
-                  </div>
-                  <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                  </div>
-
-                </div>
-                
-                
-              </li>
-            </Link>
-          ))}
-        </ul> */}
         <ul role="list" className="divide-y divide-gray-100">
           {books.map((book) => (
               <li className="flex justify-between gap-x-6 py-5">
@@ -101,7 +84,7 @@ return (
                          {(isAdmin) && (
             <div className="flex flex-end items-center ml-auto max-w-md">
               <div className="text-gray-500" 
-              onClick={() => window.location.href = `/edit-book/author/${book.author.id}/book/${book.id}`}
+              onClick={() => window.location.href = `/author/${book.author.id}/book/${book.id}/edit-book`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

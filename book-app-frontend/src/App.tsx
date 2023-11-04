@@ -10,15 +10,16 @@ import HomePage from './Pages/HomePage';
 import Header from './Header';
 import AuthorsPage from './Pages/AuthorsPage';
 import OneBookPage from './Pages/OneBookPage';
-import Test from "./Test";
 import CreateAuthorPage from './Pages/CreateAuthorPage';
 import EditAuthorPage from './Pages/EditAuhtorPage';
 import CreateBookPage from './Pages/CreateBookPage';
 import EditBookPage from './Pages/EditBookPage';
+import NotFound from './Pages/NotFound';
 
 
 function App() {
-  
+  const userRolesJson = localStorage.getItem('roles');
+  const isAdmin = userRolesJson?.includes('Admin');
   return (
     <>
       <Header />
@@ -30,11 +31,15 @@ function App() {
             <Route path="/register" Component={Register} />
             <Route path="/authors-list" Component={AuthorsPage} />
             <Route path="/author/:authorid/book/:bookid" Component={OneBookPage} />
-            <Route path="/test" Component={Test} />
-            <Route path="/create-author" Component={CreateAuthorPage} />
-            <Route path="/edit-author/:authorid" Component={EditAuthorPage} />
-            <Route path="/author/:authorid/create-book" Component={CreateBookPage} />
-            <Route path="/edit-book/author/:authorid/book/:bookid" Component={EditBookPage} />
+          {(isAdmin) && (
+            <>
+              <Route path="/create-author" Component={CreateAuthorPage} />
+              <Route path="/edit-author/:authorid" Component={EditAuthorPage} />
+              <Route path="/author/:authorid/create-book" Component={CreateBookPage} />
+              <Route path="/author/:authorid/book/:bookid/edit-book" Component={EditBookPage} />
+            </>
+            )}
+            <Route path="*" Component={NotFound} />
           </Routes>
         </div>
       </Router>
