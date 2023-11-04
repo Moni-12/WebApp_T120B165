@@ -16,6 +16,9 @@ COPY . .
 # Build the TypeScript code
 RUN npm run build
 
+# Set the environment to production
+ENV NODE_ENV=production
+
 # Expose the port that the application will run on
 EXPOSE 3000
 
