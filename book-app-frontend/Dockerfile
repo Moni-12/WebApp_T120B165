@@ -10,14 +10,14 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Set the NODE_ENV to production
+ENV NODE_ENV=production
+
 # Copy the rest of the application files to the container
 COPY . .
 
-# Build the TypeScript code
-RUN npm run build
-
-# Set the environment to production
-ENV NODE_ENV=production
+# Build the TypeScript code with production configuration
+RUN npm run build --production
 
 # Expose the port that the application will run on
 EXPOSE 3000
