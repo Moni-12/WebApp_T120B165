@@ -31,7 +31,7 @@ const CreateBookPage: React.FC = () => {
       setAboutAuthor(response.data.aboutAuthor || '');
       console.log(author, "author");
     } catch (error) {
-      // Handle error
+      window.location.href = '/notfound';
     }
   };
 

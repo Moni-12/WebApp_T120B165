@@ -31,7 +31,7 @@ const EditBookPage: React.FC = () => {
       let releaseDate = typeof(responseBook.data.releaseDate) === "string" ? new Date(responseBook.data.releaseDate) : null;
       setSelectedDate(releaseDate);
     } catch (error) {
-      // Handle error
+      window.location.href = '/notfound';
     }
   };
 

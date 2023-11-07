@@ -31,7 +31,7 @@ const EditAuthorPage: React.FC = () => {
       console.log(author, "author");
       
     } catch (error) {
-      // Handle error
+      window.location.href = '/notfound';
     }
   };
 

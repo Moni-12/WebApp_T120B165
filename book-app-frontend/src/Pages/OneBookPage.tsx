@@ -26,7 +26,7 @@ const OneBookPage: React.FC = () => {
       const responseBook = await axios.get<Book>(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}/books/${bookid}`);
       setBook(responseBook.data);
     } catch (error) {
-      // Handle error
+      window.location.href = '/notfound';
     }
   };
 
