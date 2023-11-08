@@ -83,7 +83,7 @@ Status 200
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| authorId | yes | The ID of the author to get | | 1|
+| authorId | Yes | The ID of the author to get | | 1|
 | id    |          | The ID of the author |               |  1      |
 | firstname |       | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
@@ -145,7 +145,7 @@ Status 201
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| authorId | yes | The ID of the author to update | | 1|
+| authorId | Yes | The ID of the author to update | | 1|
 | id    |          | The ID of the author |               |  1      |
 | firstname |   | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
@@ -178,7 +178,7 @@ Status 200
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| authorId | yes | The ID of the author to delete | | 1|
+| authorId | Yes | The ID of the author to delete | | 1|
 #### Request
 ```http
 DELETE https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
@@ -467,7 +467,7 @@ Status 200
 | authorId | Yes | The ID of the book's author | | 1 |
 | bookId | Yes | The ID of the review's book | | 1 |
 | id | | The ID of the review | | 1 |
-| content | | The text content of the review | | Good review |
+| content | Yes | The text content of the review | | Good review |
 | creationDate | | Date and time when review was created | | 2023-11-04T17:51:14.283491Z |
 #### Request
 ```http
@@ -498,7 +498,7 @@ Status 201
 | bookId | Yes | The ID of the review's book | | 1 |
 | reviewId | Yes | The ID of the review to update | | 1 |
 | id | | The ID of the review | | 1 |
-| content | | The text content of the review | | Good review |
+| content | Yes | The text content of the review | | Good review |
 | creationDate | | Date and time when review was created | | 2023-11-04T17:51:14.283491Z |
 #### Request
 ```http
