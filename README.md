@@ -47,8 +47,11 @@ Administratorius galės:
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| id    |          | The ID of the athor |               |         |
-| firstname  | 25       | jane@example.com    |
+| id    |          | The ID of the athor |               |  1      |
+| firstname  |       | Author's first and middle names | | Joanne K. |
+| lastname | Author's last name | | Rowling |
+| dateOfBirth | Author's date of birth | | 1965-07-31 |
+| aboutAuthor | The describtion about author | | Describtion |
 
 #### Request
 ```http
