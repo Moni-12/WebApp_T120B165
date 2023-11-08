@@ -390,7 +390,7 @@ DELETE https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}/boooks/
 ```http
 Status 204
 ```
-## 2.2. Review API metodai
+## 2.3. Review API metodai
 ### GetAllReviews
 #### Grąžina visas knygas, kurios priklauso pasirinktai knygai
 #### Autorizacijos lygis: prieinama visiems naudotojams
@@ -535,4 +535,62 @@ DELETE https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}/boooks/
 #### Response
 ```http
 Status 204
+```
+## 2.4. Autentikacijos API metodai
+### Register
+#### Priregistruoja naudotoją
+#### Autorizacijos lygis: prieinama visiems naudotojams
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| userName | Yes | The username of the user | | username |
+| email | Yes | User's email | | user@email.com |
+| password | Yes | User's password | | SecretPassword123! |
+
+#### Request
+```http
+GET https://whale-app-4h4zj.ondigitalocean.app/api/register
+```
+#### Request Body
+```http
+{
+    "userName": "user",
+    "email": "email@email.com",
+    "password": "Password1!"
+}
+```
+#### Response
+```http
+Status 200
+{
+    "id": "8a094b60-f89c-48c4-95b1-bbbaab0e472d",
+    "userName": "user",
+    "email": "email@email.com"
+}
+```
+### Login
+#### Prijungia naudotoją prie sistemos
+#### Autorizacijos lygis: prieinama visiems naudotojams
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| userName | Yes | The username of the user | | username |
+| password | Yes | User's password | | SecretPassword123! |
+
+#### Request
+```http
+GET https://whale-app-4h4zj.ondigitalocean.app/api/register
+```
+#### Request Body
+```http
+{
+    "userName": "user",
+    "password": "Password1!"
+}
+```
+#### Response
+```http
+{
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcjMiLCJqdGkiOiI3Y2E5NGUyNC00ZTA2LTQxNmYtOTg1OC0wMTc4MzVkYjc5OWIiLCJzdWIiOiI4YTA5NGI2MC1mODljLTQ4YzQtOTViMS1iYmJhYWIwZTQ3MmQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJGb3J1bVVzZXIiLCJleHAiOjE2OTk0NzYyODQsImlzcyI6IlRydXN0ZWRJc3N1ZXIiLCJhdWQiOiJUcnVzdGVkQ2xpZW50In0.44PCI0smLAsRoHMG5PaTizluRI_5wtEo8Ma8U2P6oqs"
+}
 ```
