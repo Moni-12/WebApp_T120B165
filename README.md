@@ -656,4 +656,7 @@ GET https://whale-app-4h4zj.ondigitalocean.app/api/register
 ![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/b835b0d1-6aaa-498a-83fd-8b98777119bc)
 
 # 4. Išvados
-1. Sukurta 
+1. Realizuotas knygų portalas, kurio serverio (backend) pusėje naudotas .NET, o klientinei daliai (frontend) naudotas React.js, o duomenų bazei naudota PostgreSQL.
+2. Projektas patalpintas DigitalOcean aplikacijoje
+3. Autorizacijau užtikrinti naudojami JWT (JSON Web Token).
+4. Portalo stiliu realizuotas naudojant TailwinCSS.
