@@ -594,3 +594,9 @@ GET https://whale-app-4h4zj.ondigitalocean.app/api/register
     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcjMiLCJqdGkiOiI3Y2E5NGUyNC00ZTA2LTQxNmYtOTg1OC0wMTc4MzVkYjc5OWIiLCJzdWIiOiI4YTA5NGI2MC1mODljLTQ4YzQtOTViMS1iYmJhYWIwZTQ3MmQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJGb3J1bVVzZXIiLCJleHAiOjE2OTk0NzYyODQsImlzcyI6IlRydXN0ZWRJc3N1ZXIiLCJhdWQiOiJUcnVzdGVkQ2xpZW50In0.44PCI0smLAsRoHMG5PaTizluRI_5wtEo8Ma8U2P6oqs"
 }
 ```
+# 3. Naudotojo sąsaja
+## Pradinis puslapis
+### Wireframe
+![Home page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/c0182ff8-82c0-4102-9acb-312df243da11)
+### Sistemoje atvaizduojamas vaizdas
+
