@@ -11,7 +11,6 @@ Sistemoje yra trys naudotojų rolės: svečias, prisijungęs naudotojas ir admin
 Svečias galės:
 > Peržiūrėti knygas ir jų komentarus\
 > Peržiūrėti autorius\
-> Filtruoti norimus duomenis\
 > Prisijungti\
 > Registruotis
 
@@ -32,7 +31,7 @@ Administratorius galės:
 Šiai internetinei svetaine realizuoti naudojama trijų sluoksnių architektūra.
 * Klientinei daliai (angl. front-end) - React.js
 * Serverinei daliai (angl. back-end) - C# ASP.NET Core
-* Duomenų bazė - MySQL
+* Duomenų bazė - PostgreSQL
 
 Žemiau pavaizduota sistemos diegimo diagrama. Visas projektas patalpintas saityne Azure serveryje.
 
@@ -45,9 +44,15 @@ Administratorius galės:
 ### GetAllAuthors
 #### Grąžina visus autorius sistemoje
 #### Autorizacijos lygis: prieinama visiems naudotojams
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| id    |          | The ID of the athor |               |         |
+| firstname  | 25       | jane@example.com    |
+
 #### Request
 ```http
-GET https://localhost:7031/api/authors
+GET https://whale-app-4h4zj.ondigitalocean.app/api/authors
 ```
 #### Response
 ```http
