@@ -48,7 +48,7 @@ Administratorius galės:
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
 | id    |          | The ID of the athor |               |  1      |
-| firstname | |       | Author's first and middle names | | Joanne K. |
+| firstname |       | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Describtion |
@@ -84,7 +84,7 @@ Status 200
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
 | id    |          | The ID of the athor |               |  1      |
-| firstname | |       | Author's first and middle names | | Joanne K. |
+| firstname |       | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Describtion |
@@ -110,7 +110,7 @@ Status 200
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
 | id    |          | The ID of the athor |               |  1      |
-| firstname | Yes |       | Author's first and middle names | | Joanne K. |
+| firstname | Yes | Author's first and middle names | | Joanne K. |
 | lastname | Yes | Author's last name | | Rowling |
 | dateOfBirth | Yes | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | Yes | The describtion about author | | Describtion |
@@ -145,7 +145,7 @@ Status 201
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
 | id    |          | The ID of the athor |               |  1      |
-| firstname | |       | Author's first and middle names | | Joanne K. |
+| firstname |   | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | Yes | The describtion about author | | Describtion |
