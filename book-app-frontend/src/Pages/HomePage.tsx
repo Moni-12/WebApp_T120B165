@@ -51,7 +51,7 @@ const fetchAuthorsAndBooks = async () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      setBooks(prevBooks => prevBooks.filter(book => book.id !== bookid && book.author.id !== authorid));
+      setBooks(prevBooks => prevBooks.filter(book => book.id !== bookid));
       // Handle the response if necessary
       console.log('Book deleted successfully:', response.data);
     } catch (error) {

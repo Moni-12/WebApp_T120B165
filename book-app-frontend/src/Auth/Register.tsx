@@ -10,6 +10,16 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!passwordRegex.test(password)) {
+      setError("Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.");
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
     try {
       const response = await axios.post("https://whale-app-4h4zj.ondigitalocean.app/api/register", {
         userName,
@@ -21,7 +31,7 @@ const Register: React.FC = () => {
       window.location.href = "/login";
       // Redirect to another page or perform other actions
     } catch (error) {
-      setError("Fill all the fields correctly.");
+      setError("Username already exists");
       console.error("Error while doing registration in:", error);
     }
   };

@@ -27,8 +27,8 @@ const CreateAuthorPage: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    if (firstName === "" || lastName === "" || selectedDate === null) {
-      setError("First name, last name and date of birth are required");
+    if (firstName === "" || lastName === "" || selectedDate === null || aboutAuthor === "") {
+      setError("First name, last name, date of birth and about author are required");
     } else {
       e.preventDefault();
       await handleUpload();

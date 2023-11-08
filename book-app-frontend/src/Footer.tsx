@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   <div className="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
     <nav className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
       <div className="pb-6">
-        <a href="/" className="text-sm leading-6 text-gray-600 hover:text-gray-900">Learn more abot books</a>
+        <a href="/" className="text-sm leading-6 text-gray-600 hover:text-gray-900">Learn more about books</a>
       </div>
       <div className="pb-6">
         <a href="/authors-list" className="text-sm leading-6 text-gray-600 hover:text-gray-900">Learn more about authors</a>

@@ -44,8 +44,8 @@ const CreateBookPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
 
       e.preventDefault();
-      if (title === "" || genre === "" || selectedDate === null) {
-        setError("First name, last name and date of birth are required");
+      if (title === "" || genre === "" || selectedDate === null || description === "") {
+        setError("Title, genre, release date and description are required");
       } else {
       try {
         const response = await axios.post(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}/books`,

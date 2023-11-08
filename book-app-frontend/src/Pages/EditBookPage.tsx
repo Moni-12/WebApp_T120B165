@@ -44,7 +44,9 @@ const EditBookPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
 
       e.preventDefault();
-
+      if (genre === "" || description === "") {
+        setError("Genre and description are required");
+      } else {
       try {
         const response = await axios.put(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}/books/${bookid}`,
           { 
@@ -62,6 +64,7 @@ const EditBookPage: React.FC = () => {
       } catch (error) {
         setError("Update book fail.");
         console.error("Error logging in:", error);
+      }
       }
   };
 

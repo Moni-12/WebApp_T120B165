@@ -48,6 +48,9 @@ const EditAuthorPage: React.FC = () => {
 
 
       console.log("after timeout");
+      if (aboutAuthor === "") {
+        setError("About author is required");
+      } else {
       try {
         const response = await axios.put(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}`,
           { 
@@ -66,6 +69,7 @@ const EditAuthorPage: React.FC = () => {
         setError("Update atuhor fail.");
         console.error("Error logging in:", error);
       }
+    }
   };
 
   const handleCancel = () => {
