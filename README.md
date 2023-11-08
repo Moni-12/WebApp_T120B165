@@ -640,8 +640,10 @@ GET https://whale-app-4h4zj.ondigitalocean.app/api/register
 ### Wireframe
 ![Register](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/4fcbfe37-eb5c-405a-aa5a-283cae108a9b)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/9e71e6e8-1eb0-480d-be53-20857a810c0e)
 
 ## Prisijungimo puslapis
 ### Wireframe
 ![Login](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/81f70b11-3b54-4ad7-970c-9b8ea48c7f20)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/b835b0d1-6aaa-498a-83fd-8b98777119bc)
