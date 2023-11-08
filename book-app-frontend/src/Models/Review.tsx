@@ -5,7 +5,6 @@ interface Review {
     id: number;
     content: string;
     creationDate: string;
-    book: Book;
     user: User;
   }
 
