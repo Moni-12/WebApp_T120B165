@@ -599,42 +599,49 @@ GET https://whale-app-4h4zj.ondigitalocean.app/api/register
 ### Wireframe
 ![Home page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/c0182ff8-82c0-4102-9acb-312df243da11)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/2110394f-4239-4022-90b0-3ce0fcf17f72)
 
 ## Autorių puslapis
 ### Wireframe
 ![Authors page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/a43e5454-95b4-4285-9683-e2c7b3d3e17f)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/279dbeee-4d07-4d2c-b9a2-9b530cc3b2d3)
 
 ## Vienos knygos puslapis
 ### Wireframe
 ![One book page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/999134c5-7ac9-497f-93d9-10a7bdad4239)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/574ac760-817b-4723-8bc7-053510b3c329)
 
 ## Sukurti knygą puslapis
 ### Wireframe
 ![Create book page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/2a85567e-bd27-4628-bae7-c1ca8eedc367)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/f3f2e9e8-175c-4704-97e9-ec162df74336)
 
 ## Atnaujinti knygą puslapis
 ### Wireframe
 ![Update book page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/b0bb12f7-1df2-43c7-88e3-d6587ebaf5d1)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/64483dcb-83fd-4988-8714-8c98b4863a51)
 
 ## Vieno autoriaus modalinis langas
 ### Wireframe
 ![Atuhor modal](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/2a0d7b72-42b1-40a1-8219-e6f8ec7bbfa2)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/c2861c94-d572-414a-ac68-ba0c983e0bd3)
 
 ## Sukurti autorių puslapis
 ### Wireframe
 ![Create author page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/3d9d2df1-80f0-44ff-a399-c14c32b17b4d)
-
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/27b595e0-4f7a-4831-a19c-1fd51812c8cf)
 
 ## Atnaujinti autorių puslapis
 ### Wireframe
 ![Update author page](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/90083a7f-ed69-4e3a-8a67-9bb4ae50357a)
 ### Sistemoje atvaizduojamas vaizdas
+![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/c68fb1a2-38bc-4555-b32e-6ff844733ab9)
 
 ## Registracijos puslapis
 ### Wireframe
@@ -647,3 +654,6 @@ GET https://whale-app-4h4zj.ondigitalocean.app/api/register
 ![Login](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/81f70b11-3b54-4ad7-970c-9b8ea48c7f20)
 ### Sistemoje atvaizduojamas vaizdas
 ![image](https://github.com/Moni-12/WebApp_T120B165/assets/79746010/b835b0d1-6aaa-498a-83fd-8b98777119bc)
+
+# 4. Išvados
+1. Sukurta 
