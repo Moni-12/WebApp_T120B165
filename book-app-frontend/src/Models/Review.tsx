@@ -5,7 +5,8 @@ interface Review {
     id: number;
     content: string;
     creationDate: string;
-    user: User;
+    userName: string;
+    userId: string;
   }
 
 export type {

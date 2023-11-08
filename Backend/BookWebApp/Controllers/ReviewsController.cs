@@ -54,7 +54,7 @@ namespace BookWebApp.Controllers
 
             var reviews = await _reviewsRepository.GetListAsync(bookId);
 
-            return Ok(reviews.Select(o => new ReviewDto(o.Id, o.Content, o.CreationDate, o.User)));
+            return Ok(reviews.Select(o => new ReviewDto(o.Id, o.Content, o.CreationDate, o.User.UserName, o.UserId)));
         }
 
         [HttpGet]
@@ -77,7 +77,7 @@ namespace BookWebApp.Controllers
                 return NotFound(); // 404
             }
 
-            return new ReviewDto(review.Id, review.Content, review.CreationDate, review.User);
+            return new ReviewDto(review.Id, review.Content, review.CreationDate, review.User.UserName, review.UserId);
         }
 
         [HttpPost]
@@ -106,7 +106,7 @@ namespace BookWebApp.Controllers
             await _reviewsRepository.CreateAsync(review);
 
             // 201
-            return Created("", new ReviewDto(review.Id, review.Content, review.CreationDate, review.User));
+            return Created("", new AfterChangeReviewDto(review.Id, review.Content, review.CreationDate));
         }
 
         [HttpPut]
@@ -141,7 +141,7 @@ namespace BookWebApp.Controllers
 
             await _reviewsRepository.UpdateAsync(review);
 
-            return Ok(new ReviewDto(review.Id, review.Content, review.CreationDate, review.User));
+            return Ok(new AfterChangeReviewDto(review.Id, review.Content, review.CreationDate));
         }
 
         [HttpDelete]

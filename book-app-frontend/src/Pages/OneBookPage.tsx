@@ -9,6 +9,7 @@ const OneBookPage: React.FC = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   const accessToken = localStorage.getItem('authJwt');
   const currentUserId = localStorage.getItem('userId');
+  const currentUsername = localStorage.getItem('userTitle');
   const userRolesJson = localStorage.getItem('roles');
   const isAdmin = userRolesJson?.includes('Admin');
 
@@ -59,7 +60,8 @@ const OneBookPage: React.FC = () => {
       );
       setUserReview("");
       let review = response.data;
-      review.user = {id: currentUserId};
+      review.userId = currentUserId;
+      review.userName = currentUsername;
       console.log('Review created:', review);
       setReviews((prevReviews) => [...prevReviews, review]); // Handle response data here
     } catch (error) {
@@ -173,7 +175,7 @@ const OneBookPage: React.FC = () => {
             >
             <div className="ml-3 w-full">
               <p className="text-sm font-medium text-gray-900">
-                Review written by {review.user?.userName}
+                Review written by {review.userName}
               </p>
               {isEditing && editableReviewId === review.id ? (
                 <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
@@ -209,7 +211,7 @@ const OneBookPage: React.FC = () => {
                 <p className="text-sm text-gray-500 whitespace-normal">{review.content}</p>
               )}
             </div>
-            {(isAdmin || currentUserId === review.user.id) && (
+            {(isAdmin || currentUserId === review.userId) && (
             <div className="flex flex-end items-center ml-auto max-w-md">
               <div className="text-gray-500" onClick={() => handleEditClick(review)}>
                 <svg
