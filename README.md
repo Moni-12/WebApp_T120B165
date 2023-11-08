@@ -47,7 +47,7 @@ Administratorius galės:
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| id    |          | The ID of the athor |               |  1      |
+| id    |          | The ID of the author |               |  1      |
 | firstname |       | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
@@ -83,7 +83,8 @@ Status 200
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| id    |          | The ID of the athor |               |  1      |
+| authorId | yes | The ID of the author to get | | 1|
+| id    |          | The ID of the author |               |  1      |
 | firstname |       | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
@@ -109,7 +110,7 @@ Status 200
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| id    |          | The ID of the athor |               |  1      |
+| id    |          | The ID of the author |               |  1      |
 | firstname | Yes | Author's first and middle names | | Joanne K. |
 | lastname | Yes | Author's last name | | Rowling |
 | dateOfBirth | Yes | Author's date of birth | | 1965-07-31 |
@@ -144,7 +145,8 @@ Status 201
 #### Parameters
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
-| id    |          | The ID of the athor |               |  1      |
+| authorId | yes | The ID of the author to update | | 1|
+| id    |          | The ID of the author |               |  1      |
 | firstname |   | Author's first and middle names | | Joanne K. |
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
@@ -173,6 +175,10 @@ Status 200
 ### DeleteAuthor
 #### Ištrina autorių
 #### Autorizacijos lygis: tik administratoriaus funkcija
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| authorId | yes | The ID of the author to delete | | 1|
 #### Request
 ```http
 DELETE https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
