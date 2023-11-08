@@ -48,10 +48,10 @@ Administratorius galės:
 | Name  | Required | Description         | Default Value | Example |
 |-------|----------|---------------------|---------------|---------|
 | id    |          | The ID of the athor |               |  1      |
-| firstname  |       | Author's first and middle names | | Joanne K. |
-| lastname | Author's last name | | Rowling |
-| dateOfBirth | Author's date of birth | | 1965-07-31 |
-| aboutAuthor | The describtion about author | | Describtion |
+| firstname | |       | Author's first and middle names | | Joanne K. |
+| lastname | | Author's last name | | Rowling |
+| dateOfBirth | | Author's date of birth | | 1965-07-31 |
+| aboutAuthor | | The describtion about author | | Describtion |
 
 #### Request
 ```http
@@ -80,9 +80,17 @@ Status 200
 ### GetAuthorById
 #### Grąžina autorių pagal id
 #### Autorizacijos lygis: prieinama visiems naudotojams
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| id    |          | The ID of the athor |               |  1      |
+| firstname | |       | Author's first and middle names | | Joanne K. |
+| lastname | | Author's last name | | Rowling |
+| dateOfBirth | | Author's date of birth | | 1965-07-31 |
+| aboutAuthor | | The describtion about author | | Describtion |
 #### Request
 ```http
-GET https://localhost:7031/api/authors/{authorId}
+GET https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
 ```
 #### Response
 ```http
@@ -98,17 +106,25 @@ Status 200
 ### CreateAuthor
 #### Sukuria naują autorių
 #### Autorizacijos lygis: tik administratoriaus funkcija
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| id    |          | The ID of the athor |               |  1      |
+| firstname | Yes |       | Author's first and middle names | | Joanne K. |
+| lastname | Yes | Author's last name | | Rowling |
+| dateOfBirth | Yes | Author's date of birth | | 1965-07-31 |
+| aboutAuthor | Yes | The describtion about author | | Describtion |
 #### Request
 ```http
-POST https://localhost:7031/api/authors
+POST https://whale-app-4h4zj.ondigitalocean.app/api/authors
 ```
 #### Request Body
 ```http
 {
-    "FirstName": "Name",
-    "LastName": "LastName",
-    "DateOfBirth": "1835-11-30",
-    "AboutAuthor": "Author description"
+    "firstName": "Name",
+    "lastName": "LastName",
+    "dateOfBirth": "1835-11-30",
+    "aboutAuthor": "Author description"
 }
 ```
 #### Response
@@ -116,18 +132,26 @@ POST https://localhost:7031/api/authors
 Status 201
 {
     "id": 1,
-    "FirstName": "Name",
-    "LastName": "LastName",
-    "DateOfBirth": "1835-11-30",
-    "AboutAuthor": "Author description"
+    "firstName": "Name",
+    "lastName": "LastName",
+    "dateOfBirth": "1835-11-30",
+    "aboutAuthor": "Author description"
 }
 ```
 ### UpdateAuthor
 #### Atnaujina autoriaus aprašymą
 #### Autorizacijos lygis: tik administratoriaus funkcija
+#### Parameters
+| Name  | Required | Description         | Default Value | Example |
+|-------|----------|---------------------|---------------|---------|
+| id    |          | The ID of the athor |               |  1      |
+| firstname | |       | Author's first and middle names | | Joanne K. |
+| lastname | | Author's last name | | Rowling |
+| dateOfBirth | | Author's date of birth | | 1965-07-31 |
+| aboutAuthor | Yes | The describtion about author | | Describtion |
 #### Request
 ```http
-PUT https://localhost:7031/api/authors/{authorId}
+PUT https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
 ```
 #### Request Body
 ```http
@@ -151,7 +175,7 @@ Status 200
 #### Autorizacijos lygis: tik administratoriaus funkcija
 #### Request
 ```http
-DELETE https://localhost:7031/api/authors/{authorId}
+DELETE https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
 ```
 #### Response
 ```http
