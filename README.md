@@ -53,6 +53,7 @@ Administratorius galės:
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 
 #### Request
 ```http
@@ -67,14 +68,16 @@ Status 200
         "firstName": "Name",
         "lastName": "LatName",
         "dateOfBirth": "1965-07-31T00:00:00",
-        "aboutAuthor": "Description"
+        "aboutAuthor": "Description",
+        "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
     },
     {
         "id": 2,
         "firstName": "Name",
         "lastName": "LatName",
         "dateOfBirth": "1978-04-21T00:00:00",
-        "aboutAuthor": "Description"
+        "aboutAuthor": "Description",
+        "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
     }
 ]
 ```
@@ -90,6 +93,7 @@ Status 200
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 GET https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
@@ -102,7 +106,8 @@ Status 200
     "firstName": "Name",
     "lastName": "LastName",
     "dateOfBirth": "1965-07-31T00:00:00",
-    "aboutAuthor": "Description"
+    "aboutAuthor": "Description",
+    "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
 }
 ```
 ### CreateAuthor
@@ -116,6 +121,7 @@ Status 200
 | lastname | Yes | Author's last name | | Rowling |
 | dateOfBirth | Yes | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | Yes | The describtion about author | | Description |
+| pictureBase64 | Can be empty string | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 POST https://whale-app-4h4zj.ondigitalocean.app/api/authors
@@ -126,7 +132,8 @@ POST https://whale-app-4h4zj.ondigitalocean.app/api/authors
     "firstName": "Name",
     "lastName": "LastName",
     "dateOfBirth": "1835-11-30",
-    "aboutAuthor": "Author description"
+    "aboutAuthor": "Author description",
+    "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
 }
 ```
 #### Response
@@ -137,7 +144,8 @@ Status 201
     "firstName": "Name",
     "lastName": "LastName",
     "dateOfBirth": "1835-11-30",
-    "aboutAuthor": "Author description"
+    "aboutAuthor": "Author description",
+    "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
 }
 ```
 ### UpdateAuthor
@@ -152,6 +160,7 @@ Status 201
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | Yes | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 PUT https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}
@@ -170,7 +179,8 @@ Status 200
     "firstName": "Name",
     "lastName": "LastName",
     "dateOfBirth": "1835-11-30",
-    "aboutAuthor": "New description"
+    "aboutAuthor": "New description",
+    "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
 }
 ```
 ### DeleteAuthor
@@ -205,6 +215,7 @@ Status 204
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 GET https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}/books
@@ -221,10 +232,11 @@ Status 200
         "genre": "Fiction",
         "author": {
             "id": 1,
-            "FirstName": "Name",
-            "LastName": "LastName",
-            "DateOfBirth": "1835-11-30",
-            "AboutAuthor": "Author description"
+            "firstName": "Name",
+            "lastName": "LastName",
+            "dateOfBirth": "1835-11-30",
+            "aboutAuthor": "Author description",
+            "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
         }
     },
     {
@@ -235,10 +247,11 @@ Status 200
         "genre": "Fiction",
         "author": {
             "id": 1,
-            "FirstName": "Name",
-            "LastName": "LastName",
-            "DateOfBirth": "1835-11-30",
-            "AboutAuthor": "Author description"
+            "firstName": "Name",
+            "lastName": "LastName",
+            "dateOfBirth": "1835-11-30",
+            "aboutAuthor": "Author description",
+            "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
         }
     }
 ]
@@ -260,6 +273,7 @@ Status 200
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 GET https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}/boooks/{bookId}
@@ -275,10 +289,11 @@ Status 200
         "genre": "Fiction",
         "author": {
             "id": 1,
-            "FirstName": "Name",
-            "LastName": "LastName",
-            "DateOfBirth": "1835-11-30",
-            "AboutAuthor": "Author description"
+            "firstName": "Name",
+            "lastName": "LastName",
+            "dateOfBirth": "1835-11-30",
+            "aboutAuthor": "Author description",
+            "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
         }
 }
 ```
@@ -298,6 +313,7 @@ Status 200
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 POST https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}/books
@@ -325,7 +341,8 @@ Status 201
             "firstName": "Name",
             "lastName": "LastName",
             "dateOfBirth": "1835-11-30",
-            "aboutAuthor": "Author description"
+            "aboutAuthor": "Author description",
+            "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
         }
 }
 ```
@@ -346,6 +363,7 @@ Status 201
 | lastname | | Author's last name | | Rowling |
 | dateOfBirth | | Author's date of birth | | 1965-07-31 |
 | aboutAuthor | | The describtion about author | | Description |
+| pictureBase64 | | The author's picture bytes | | data:image/jpeg;base64,/9j/4QCE |
 #### Request
 ```http
 PUT https://whale-app-4h4zj.ondigitalocean.app/api/authors/{authorId}/boooks/{bookId}
@@ -371,7 +389,8 @@ Status 200
             "firstName": "Name",
             "lastName": "LastName",
             "sateOfBirth": "1835-11-30",
-            "aboutAuthor": "Author description"
+            "aboutAuthor": "Author description",
+            "pictureBase64": "data:image/jpeg;base64,/9j/4QCERXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAA"
         }
 }
 ```
