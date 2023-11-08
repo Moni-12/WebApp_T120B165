@@ -54,8 +54,7 @@ const EditAuthorPage: React.FC = () => {
       try {
         const response = await axios.put(`https://whale-app-4h4zj.ondigitalocean.app/api/authors/${authorid}`,
           { 
-            AboutAuthor: aboutAuthor,
-            PictureBase64: author?.pictureBase64
+            AboutAuthor: aboutAuthor
           },
           {
             headers: {

@@ -85,7 +85,6 @@ namespace BookWebApp.Controllers
             }
 
             author.AboutAuthor = updateAuthorDto.AboutAuthor;
-            author.PictureBase64 = updateAuthorDto.PictureBase64;
             await _authorsRepository.UpdateAsync(author);
 
             return Ok(new AuthorDto(author.Id, author.FirstName, author.LastName, author.DateOfBirth, author.AboutAuthor, author.PictureBase64));
